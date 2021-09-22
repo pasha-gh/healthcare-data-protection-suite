@@ -65,17 +65,3 @@ module "state_bucket" {
   project_id = module.project.project_id
   location   = "us-central1"
 }
-
-# Project level IAM permissions for devops project owners.
-resource "google_project_iam_binding" "devops_owners" {
-  project = module.project.project_id
-  role    = "roles/owner"
-  members = ["group:example-devops-owners@example.com"]
-}
-
-# Admin permission at folder level.
-resource "google_folder_iam_member" "admin" {
-  folder = "folders/12345678"
-  role   = "roles/resourcemanager.folderAdmin"
-  member = "group:example-team-admins@example.com"
-}
