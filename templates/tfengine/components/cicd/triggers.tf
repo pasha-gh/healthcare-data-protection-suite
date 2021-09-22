@@ -177,6 +177,8 @@ resource "google_cloudbuild_trigger" "plan_{{.name}}" {
     branch_name = "^{{.branch_name}}$"
   }
   {{- end}}
+  
+  serviceAccount = "serviceAccount:${var.project_id}@cloudbuild.gserviceaccount.com"
 
   filename = "{{$terraform_root_prefix}}cicd/configs/tf-plan.yaml"
 

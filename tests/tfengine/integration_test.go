@@ -81,17 +81,17 @@ func TestFullDeployment(t *testing.T) {
 
 		init := buildCmd("terraform", "init")
 		apply := buildCmd("terraform", "apply", "-auto-approve")
-		destroy := buildCmd("terraform", "destroy", "-auto-approve")
+		// destroy := buildCmd("terraform", "destroy", "-auto-approve")
 
 		if err := init.Run(); err != nil {
 			t.Fatalf("command %v in %q: %v", init.Args, path, err)
 		}
 
-		defer func() {
-			if err := destroy.Run(); err != nil {
-				t.Errorf("command %v in %q: %v", destroy.Args, path, err)
-			}
-		}()
+		// defer func() {
+		// 	if err := destroy.Run(); err != nil {
+		// 		t.Errorf("command %v in %q: %v", destroy.Args, path, err)
+		// 	}
+		// }()
 
 		if err := apply.Run(); err != nil {
 			t.Fatalf("command %v in %q: %v", apply.Args, path, err)

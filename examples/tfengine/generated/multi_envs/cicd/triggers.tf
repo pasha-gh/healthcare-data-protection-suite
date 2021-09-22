@@ -56,6 +56,8 @@ resource "google_cloudbuild_trigger" "plan_shared" {
     branch_name = "^shared$"
   }
 
+  serviceAccount = "serviceAccount:${var.project_id}@cloudbuild.gserviceaccount.com"
+
   filename = "terraform/cicd/configs/tf-plan.yaml"
 
   substitutions = {
@@ -200,6 +202,8 @@ resource "google_cloudbuild_trigger" "plan_prod" {
     repo_name   = "example"
     branch_name = "^main$"
   }
+
+  serviceAccount = "serviceAccount:${var.project_id}@cloudbuild.gserviceaccount.com"
 
   filename = "terraform/cicd/configs/tf-plan.yaml"
 

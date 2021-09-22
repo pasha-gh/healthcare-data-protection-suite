@@ -61,6 +61,8 @@ resource "google_cloudbuild_trigger" "plan_prod" {
     }
   }
 
+  serviceAccount = "serviceAccount:${var.project_id}@cloudbuild.gserviceaccount.com"
+
   filename = "terraform/cicd/configs/tf-plan.yaml"
 
   substitutions = {
