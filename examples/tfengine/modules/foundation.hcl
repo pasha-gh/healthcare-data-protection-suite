@@ -24,7 +24,8 @@ template "devops" {
 
     admins_group = {
       id     = "{{.prefix}}-team-admins@{{.domain}}"
-      exists = true
+      exists = false
+      customer_id = "C01356gnk"
     }
 
     project = {
