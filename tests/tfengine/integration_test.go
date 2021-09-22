@@ -41,11 +41,8 @@ import (
 )
 
 var dirsToDeploy = []string{
-	"project_secrets",
-	"project_networks",
-	"project_apps",
-	"project_data",
-	"additional_iam_members",
+	"devops",
+	"cicd",
 }
 
 func TestFullDeployment(t *testing.T) {
